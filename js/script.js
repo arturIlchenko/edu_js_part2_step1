@@ -13,13 +13,67 @@ const personalMovieDB = {
 	genres: [],
 	privat: false
 }
+//  first way 
 
-const a = prompt('Один из последних просмотренных фильмов?', ''),
-		b = prompt('На сколько оцените его?', ''),
-		c = prompt('Один из последних просмотренных фильмов?', ''),
-		d = prompt('На сколько оцените его?', '');
+// for (let i = 0; i < 2; i++) {
+// 	const firstQuestion = prompt('Один из последних просмотренных фильмов?', '');
+// 	if (!firstQuestion || firstQuestion.length > 50) {
+// 		i--;
+// 		continue;
+// 	}
+// 	const secondQuestion = prompt('На сколько оцените его?', '');
+// 	personalMovieDB.movies[firstQuestion] = secondQuestion;
+// };
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+for (let i = 0; i < 2; i++) {
+	const firstQuestion = prompt('Один из последних просмотренных фильмов?', ''),
+		secondQuestion = prompt('На сколько оцените его?', '');
+	if (firstQuestion != null && secondQuestion != null && firstQuestion != '' && secondQuestion != '' && firstQuestion.length < 50) {
+		personalMovieDB.movies[firstQuestion] = secondQuestion;
+	} else {
+		i--;
+	}
+};
+
+// second way
+
+// let i = 0;
+
+// while (i < 2) {
+// 	const firstQuestion = prompt('Один из последних просмотренных фильмов?', '');
+// 	if (!firstQuestion || firstQuestion.length > 50) {
+// 		i--;
+// 		continue;
+// 	}
+// 	const secondQuestion = prompt('На сколько оцените его?', '');
+// 	personalMovieDB.movies[firstQuestion] = secondQuestion;
+// 	i++;
+// }
+
+// third way
+
+// let i = 0;
+
+// do {
+// 	const firstQuestion = prompt('Один из последних просмотренных фильмов?', '');
+// 		if (!firstQuestion || firstQuestion.length > 50) {
+// 			i--;
+// 			continue;
+// 		}
+// 		const secondQuestion = prompt('На сколько оцените его?', '');
+// 		personalMovieDB.movies[firstQuestion] = secondQuestion;
+// 		i++;
+
+// } while (i < 2);
+
+if (personalMovieDB.count < 10) {
+	alert('Просмотренно довольно мало фильмов');
+} else if (personalMovieDB.count < 30) {
+	alert('Вы классический зритель');
+} else if (personalMovieDB.count >= 30) {
+	alert('Вы киноман');
+} else {
+	alert('Произошкла ошибка')
+}
 
 console.log(personalMovieDB);
